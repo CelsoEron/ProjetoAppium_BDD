@@ -1,18 +1,17 @@
 package stepDefinition;
 
-import org.openqa.selenium.WebDriver;
-
 import PageObjects.HomeScreen;
 import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import io.appium.java_client.android.AndroidDriver;
 import managers.TestContext;
 
 public class HomeScreenSteps {
 
 	HomeScreen home;
-	WebDriver driver;
+	AndroidDriver driver;
 	TestContext testContext;
 
 	public HomeScreenSteps(TestContext context) {
@@ -23,12 +22,8 @@ public class HomeScreenSteps {
 	@Dado("^que estou com o aplicativo aberto$")
 	public void que_estou_com_o_aplicativo_aberto() throws Throwable {
 		home.clickMenu();
-	}
-
-	@Quando("^eu preencho todos os campos obrigatorios$")
-	public void eu_preencho_todos_os_campos_obrigatorios() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		home.clickBtnLogin();
+		home.clickCreateAccount();
 	}
 
 	@Quando("^clico no bot?o de registrar$")

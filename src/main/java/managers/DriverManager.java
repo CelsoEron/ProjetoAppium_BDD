@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import dataProviders.ReadProperties;
+import dataProviders.ConfigFileReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -18,7 +18,7 @@ public class DriverManager {
 	private static String URL = "http://127.0.0.1:4723/wd/hub";
 	private AndroidDriver<AndroidElement> driver;
 	private String port;
-	private Logger logger = Logger.getLogger("ReadProperties.class");
+	private Logger logger = Logger.getLogger("FileReaderManager.class");
 
 	public AndroidDriver<AndroidElement> getDriver() {
 		if (driver == null)
@@ -27,7 +27,7 @@ public class DriverManager {
 	}
 
 	private AndroidDriver<AndroidElement> createDriver() {
-		ReadProperties prop = new ReadProperties("mobile");
+		ConfigFileReader prop = new ConfigFileReader();
 		Properties props = prop.getProperty();
 		deviceName = props.getProperty("deviceName");
 		String platformVersion = props.getProperty("platformVersion");
@@ -36,7 +36,6 @@ public class DriverManager {
 		String appActivity = props.getProperty("appActivity");
 		port = props.getProperty("port");
 		String apkFilePath = props.getProperty("apkFilePath");
-//		int waitTime = Integer.parseInt(props.getProperty("waitTime"));
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("deviceName", deviceName);

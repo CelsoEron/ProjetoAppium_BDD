@@ -15,11 +15,25 @@ public class HomeScreen {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(how = How.ID, using = "	com.Advantage.aShopping:id/imageViewMenu")
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
 	private WebElement btnMenu;
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/linearLayoutLogin")
+	private WebElement btnLogin;
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewSingUpToday")
+	private WebElement btnCreateAccount;
 
 	public void clickMenu() {
 		btnMenu.click();
+	}
+
+	public void clickBtnLogin() {
+		btnLogin.click();
+	}
+
+	public void clickCreateAccount() {
+		btnCreateAccount.click();
 	}
 
 }
