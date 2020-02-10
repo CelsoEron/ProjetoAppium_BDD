@@ -20,12 +20,17 @@ public class ProductsScreenSteps {
 	@Quando("^escolho o produto desejado$")
 	public void escolho_o_produto_desejado() throws InterruptedException {
 		products.clickProduct();
-		
+
 	}
 
 	@Entao("^deve estar na tela do produto desejado$")
 	public void deve_estar_na_tela_do_produto_desejado() {
 		products.checkProduct();
+	}
+
+	@Entao("^deve estar na tela de produto nao encontrado$")
+	public void deve_estar_na_tela_de_produto_nao_encontrado() {
+		products.checkProductNotFound();
 	}
 
 }

@@ -44,4 +44,20 @@ public class HomeScreenSteps {
 		home.clickCategorySpeaker();
 	}
 
+	@Quando("^digito o produto desejado$")
+	public void digito_o_produto_desejado() {
+		home.clickBtnSearch();
+		home.enterBxSearch(productName);
+		home.clickBtnSearch();
+	}
+	
+	@Quando("^digito o produto invalido$")
+	public void digito_o_produto_invalido() {
+		home.clickBtnSearch();
+		home.enterBxSearch(invalidProductName);
+		home.clickBtnSearch();
+	}
+	
+	String productName = "speaker";
+	String invalidProductName = "TV";
 }

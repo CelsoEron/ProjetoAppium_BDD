@@ -14,21 +14,23 @@ import dataProviders.TimeDescription;
 import managers.FileReaderManager;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "Feature", glue = { "stepDefinition" }, plugin = {
-		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, monochrome = true)
+@CucumberOptions(features = "Feature", glue = "stepDefinition",  plugin = {
+"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, monochrome = true)
 
 public class TestRunner {
 
-	public static String folderPath = System.getProperty("user.dir") + "/target/" + TimeDescription.horas();
+public static String folderPath = System.getProperty("user.dir") + "/target/"
+	+ TimeDescription.horas();
 
-	@AfterClass
-	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
-	}
+@AfterClass
+public static void writeExtentReport() {
+Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+}
 
-	@BeforeClass
-	public static void createPrintFolder() {
-		File folderScreenshot = new File(folderPath);
-		folderScreenshot.mkdir();
-	}
+@BeforeClass
+public static void createPrintFolder() {
+File folderScreenshot = new File(folderPath);
+folderScreenshot.mkdir();
+}
+
 }

@@ -30,6 +30,12 @@ public class HomeScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
 	private WebElement bxUser;
 	
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewSearch")
+	private WebElement btnSearch;
+	
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/editTextSearch")
+	private WebElement bxSearch;
+	
 	public void clickMenu() {
 		btnMenu.click();
 	}
@@ -48,6 +54,14 @@ public class HomeScreen {
 	
 	public boolean checkUser() {
 		return bxUser.getText().contains("");
+	}
+	
+	public void clickBtnSearch() {
+		 btnSearch.click();
+	}
+	
+	public void enterBxSearch(String productName) {
+		bxSearch.sendKeys(productName);
 	}
 
 }
