@@ -24,6 +24,12 @@ public class HomeScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewSingUpToday")
 	private WebElement btnCreateAccount;
 
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[4]/android.widget.ImageView")
+	private WebElement bxCategorySpeaker;
+	
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
+	private WebElement bxUser;
+	
 	public void clickMenu() {
 		btnMenu.click();
 	}
@@ -34,6 +40,14 @@ public class HomeScreen {
 
 	public void clickCreateAccount() {
 		btnCreateAccount.click();
+	}
+
+	public void clickCategorySpeaker() {
+		bxCategorySpeaker.click();
+	}
+	
+	public boolean checkUser() {
+		return bxUser.getText().contains("");
 	}
 
 }

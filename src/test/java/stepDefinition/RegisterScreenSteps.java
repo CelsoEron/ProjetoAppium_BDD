@@ -18,7 +18,6 @@ public class RegisterScreenSteps {
 
 	@Quando("^eu preencho todos os campos obrigatorios$")
 	public void eu_preencho_todos_os_campos_obrigatorios() {
-
 		register.enterUsername(username);
 		register.enterEmail(email);
 		register.enterPassword(password);
@@ -35,7 +34,7 @@ public class RegisterScreenSteps {
 		register.clickBtnRegister(true);
 	}
 
-	String username = "Celso";
+	String username = "CelsoRon";
 	String email = "celso.silva@rsinet.com.br";
 	String password = "Test1234";
 	String confirmPassword = password;

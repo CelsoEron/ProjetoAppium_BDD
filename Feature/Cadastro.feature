@@ -2,7 +2,7 @@
 Funcionalidade: Cadastro de novas contas
 
   Cenario: Cadastro de conta válida
-    Dado que estou com o aplicativo aberto
+    Dado que estou na tela de cadastro
     Quando eu preencho todos os campos obrigatorios
     Entao deve retornar para a pagina inicial logado na conta criada
 #
