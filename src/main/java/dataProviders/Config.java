@@ -7,12 +7,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigFileReader {
+public class Config {
 	private Properties properties;
 	private final String propertyFilePath = "//configs//mobile.properties";
 	private final String extentFilePath = "//configs//extent-config.properties";
 
-	public ConfigFileReader() {
+	public Config() {
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(System.getProperty("user.dir") + propertyFilePath));
@@ -43,11 +43,11 @@ public class ConfigFileReader {
 	}
 
 	public String getReportConfigPath() {
-		String reportConfigPath = properties.getProperty(System.getProperty("user.dir") + "reportConfigPath");
+		String reportConfigPath = properties.getProperty("reportConfigPath");
 		if (reportConfigPath != null)
 			return reportConfigPath;
 		else
 			throw new RuntimeException(
-					"Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
+					"Report Config Path not specified in the mobile.properties file for the Key:reportConfigPath");
 	}
 }

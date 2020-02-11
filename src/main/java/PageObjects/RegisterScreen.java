@@ -113,9 +113,8 @@ public class RegisterScreen {
 		bxZIP.sendKeys(zip);
 	}
 
-	public void clickBtnRegister(boolean value) {
-		if (value)
-			btnRegister.click();
+	public WebElement btnRegister() {
+			return btnRegister;
 	}
 
 }

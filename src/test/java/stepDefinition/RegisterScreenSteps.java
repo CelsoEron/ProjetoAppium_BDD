@@ -1,6 +1,9 @@
 package stepDefinition;
 
+import org.junit.Assert;
+
 import PageObjects.RegisterScreen;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 import managers.TestContext;
@@ -31,7 +34,28 @@ public class RegisterScreenSteps {
 		register.enterAddress(address);
 		register.enterCity(city);
 		register.enterZIP(zip);
-		register.clickBtnRegister(true);
+		register.btnRegister().click();
+	}
+
+	@Quando("^eu preencho todos os campos obrigatorios, exceto o email$")
+	public void eu_preencho_todos_os_campos_obrigatorios_exceto_email() {
+		register.enterUsername(username);
+		register.enterPassword(password);
+		register.enterConfirmPassword(confirmPassword);
+		register.enterFirstName(firstName);
+		register.enterLastName(lastName);
+		register.enterPhone(phone);
+		register.scrollDown();
+		register.slcCountry(country);
+		register.enterState(state);
+		register.enterAddress(address);
+		register.enterCity(city);
+		register.enterZIP(zip);
+	}
+
+	@Entao("^o botao de registrar deve estar indisponivel para cliques$")
+	public void botao_de_registrar_indisponivel() {
+		Assert.assertFalse(register.btnRegister().isEnabled());
 	}
 
 	String username = "CelsoRon";

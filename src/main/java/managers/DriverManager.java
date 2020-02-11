@@ -4,11 +4,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import dataProviders.ConfigFileReader;
+import dataProviders.Config;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -18,7 +17,6 @@ public class DriverManager {
 	private static String URL = "http://127.0.0.1:4723/wd/hub";
 	private AndroidDriver<AndroidElement> driver;
 	private String port;
-	private Logger logger = Logger.getLogger("FileReaderManager.class");
 
 	public AndroidDriver<AndroidElement> getDriver() {
 		if (driver == null)
@@ -27,15 +25,15 @@ public class DriverManager {
 	}
 
 	private AndroidDriver<AndroidElement> createDriver() {
-		ConfigFileReader prop = new ConfigFileReader();
-		Properties props = prop.getProperty();
-		deviceName = props.getProperty("deviceName");
-		String platformVersion = props.getProperty("platformVersion");
-		String platformName = props.getProperty("platformName");
-		String appPackage = props.getProperty("appPackage");
-		String appActivity = props.getProperty("appActivity");
-		port = props.getProperty("port");
-		String apkFilePath = props.getProperty("apkFilePath");
+		Config config = new Config();
+		Properties mobile = config.getProperty();
+		deviceName = mobile.getProperty("deviceName");
+		String platformVersion = mobile.getProperty("platformVersion");
+		String platformName = mobile.getProperty("platformName");
+		String appPackage = mobile.getProperty("appPackage");
+		String appActivity = mobile.getProperty("appActivity");
+		port = mobile.getProperty("port");
+		String apkFilePath = mobile.getProperty("apkFilePath");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("deviceName", deviceName);
@@ -45,7 +43,7 @@ public class DriverManager {
 		try {
 			driver = new AndroidDriver<AndroidElement>(new URL(URL), capabilities);
 		} catch (MalformedURLException e) {
-			logger.info(e.getMessage());
+//			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -53,7 +51,6 @@ public class DriverManager {
 	}
 
 	public void closeDriver() {
-		driver.close();
 		driver.quit();
 	}
 
