@@ -114,7 +114,7 @@ public class RegisterScreen {
 	}
 
 	public WebElement btnRegister() {
-			return btnRegister;
+		return btnRegister;
 	}
 
 }

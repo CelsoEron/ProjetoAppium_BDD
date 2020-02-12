@@ -32,5 +32,14 @@ public class ProductsScreenSteps {
 	public void deve_estar_na_tela_de_produto_nao_encontrado() {
 		products.checkProductNotFound();
 	}
+	
+	@Quando("^aplico os filtros invalidos$")
+	public void aplico_os_filtros_invalidos() {
+		products.clickFilter();
+		products.clickColor();
+		products.clickWireless();
+		products.clickManufacturer();
+		products.clickApply();
+	}
 
 }

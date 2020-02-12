@@ -63,5 +63,4 @@ public class HomeScreen {
 	public void enterBxSearch(String productName) {
 		bxSearch.sendKeys(productName);
 	}
-
 }

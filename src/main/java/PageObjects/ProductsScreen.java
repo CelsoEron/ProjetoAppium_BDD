@@ -28,6 +28,30 @@ public class ProductsScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewNoProductsToShow")
 	private WebElement checkNotFound;
 
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewFilter")
+	private WebElement btnFilter;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[6]/android.widget.LinearLayout")
+	private WebElement bxColor;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[7]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.View[3]")
+	private WebElement slcPurple;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[3]/android.widget.LinearLayout")
+	private WebElement bxManufacturer;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[4]")
+	private WebElement slcBose;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[5]/android.widget.LinearLayout")
+	private WebElement bxWireless;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[6]")
+	private WebElement slcBluetooh;
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewApply")
+	private WebElement btnApply;
+
 	public void checkProductNotFound() {
 		Assert.assertTrue(checkNotFound.getText().contains("No results"));
 	}
@@ -43,4 +67,26 @@ public class ProductsScreen {
 		Assert.assertTrue(checkBose.getText().contains("BOSE"));
 	}
 
+	public void clickFilter() {
+		btnFilter.click();
+	}
+
+	public void clickColor() {
+		bxColor.click();
+		slcPurple.click();
+	}
+
+	public void clickWireless() {
+		bxWireless.click();
+		slcBluetooh.click();
+	}
+
+	public void clickManufacturer() {
+		bxManufacturer.click();
+		slcBose.click();
+	}
+
+	public void clickApply() {
+		btnApply.click();
+	}
 }
