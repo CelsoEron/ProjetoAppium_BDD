@@ -1,5 +1,7 @@
 package PageObjects;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
 
 public class ProductsScreen {
 
@@ -68,10 +71,14 @@ public class ProductsScreen {
 	}
 
 	public void clickFilter() {
+		action = new TouchAction(driver);
+		action.waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).perform();
 		btnFilter.click();
 	}
 
 	public void clickColor() {
+		action = new TouchAction(driver);
+		action.waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).perform();
 		bxColor.click();
 		slcPurple.click();
 	}
