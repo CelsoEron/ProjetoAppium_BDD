@@ -61,7 +61,7 @@ public class HomeScreen {
 	}
 
 	public boolean checkUser() {
-		return bxUser.getText().contains("");
+		return bxUser.isDisplayed();
 	}
 
 	public void clickBtnSearch() {
